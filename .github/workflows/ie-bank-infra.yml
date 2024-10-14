@@ -47,9 +47,9 @@ jobs:
       
       with:
         subscriptionId: ${{ env.SUBSCRIPTION_ID_DEV }}
-        resourceGroupName: ${{ env.RESOURCE_GROUP_DEV }}
+        resourceGroupName: ${{ vars.resourceGroupName }}
         template: ./main.bicep
-        parameters: ./parameters/dev.parameters.json  administratorLoginPassword=${{ secrets.DBPASS }} appServiceAPIEnvVarENV=${{ vars.ENV }} appServiceAPIEnvVarDBHOST=${{ vars.DBHOST }} appServiceAPIEnvVarDBNAME=${{ vars.DBNAME }} appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} appServiceAPIDBHostFLASK_APP=${{ vars.FLASK_APP }} appServiceAPIDBHostFLASK_DEBUG=${{ vars.FLASK_DEBUG }}
+        parameters: ./parameters/dev.parameters.json administratorLoginPassword=${{ secrets.DBPASS }} appServiceAPIEnvVarENV=${{ vars.ENV }} appServiceAPIEnvVarDBHOST=${{ vars.DBHOST }} appServiceAPIEnvVarDBNAME=${{ vars.DBNAME }} appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} appServiceAPIDBHostFLASK_APP=${{ vars.FLASK_APP }} appServiceAPIDBHostFLASK_DEBUG=${{ vars.FLASK_DEBUG }}
         deploymentName: abaraitaru
         failOnStderr: true
 
