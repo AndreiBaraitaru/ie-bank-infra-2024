@@ -41,6 +41,9 @@ param appServiceAPIDBHostDBUSER string
 param appServiceAPIDBHostFLASK_APP string
 @sys.description('The value for the environment variable FLASK_DEBUG')
 param appServiceAPIDBHostFLASK_DEBUG string
+@sys.description('The administrator login password for the PostgreSQL Server')
+@secure()
+param administratorLoginPassword string
 
 resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
   name: postgreSQLServerName
@@ -51,7 +54,7 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
   }
   properties: {
     administratorLogin: 'iebankdbadmin'
-    administratorLoginPassword: 'IE.Bank.DB.Admin.Pa$$'
+    administratorLoginPassword: administratorLoginPassword
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
